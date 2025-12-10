@@ -40,17 +40,13 @@ export function FilterPanel({ filters, onFilterChange, className }: FilterPanelP
           : [...current, value]
       }
 
-      const updated = {
-        ...prev,
-        [groupId]: newValues.length > 0 ? newValues : undefined,
-      }
+      const updated: Record<string, string[]> = { ...prev }
 
-      // Remove empty filter groups
-      Object.keys(updated).forEach((key) => {
-        if (!updated[key] || updated[key].length === 0) {
-          delete updated[key]
-        }
-      })
+      if (newValues.length > 0) {
+        updated[groupId] = newValues
+      } else {
+        delete updated[groupId]
+      }
 
       if (onFilterChange) {
         onFilterChange(updated)

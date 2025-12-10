@@ -1,6 +1,9 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+// Force dynamic rendering to avoid prerender issues with search params
+export const dynamic = 'force-dynamic'
+
+import React, { useEffect, useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ArrowLeft, Loader2 } from 'lucide-react'
 import { PDFViewer } from '@/features/results/PDFViewer'
@@ -10,6 +13,23 @@ import { ExportButton } from '@/components/ui/ExportButton'
 import { fetchScanResult, type ScanResult } from '@/lib/api'
 
 export default function AnalysisResultsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="h-[calc(100vh-8rem)] flex items-center justify-center">
+          <div className="flex items-center gap-3 text-navy-300">
+            <Loader2 className="w-5 h-5 animate-spin" />
+            <span>Loading analysis...</span>
+          </div>
+        </div>
+      }
+    >
+      <AnalysisResultsContent />
+    </Suspense>
+  )
+}
+
+function AnalysisResultsContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const taskId = searchParams.get('taskId')
