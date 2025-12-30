@@ -31,5 +31,8 @@ xlrd==2.0.1
 
 # Machine Learning & Similarity Detection
 sentence-transformers==2.2.2
+transformers==4.34.1
+huggingface_hub==0.18.0
+torch>=1.13,<2.2
 faiss-cpu==1.7.4
 numpy==1.26.2
