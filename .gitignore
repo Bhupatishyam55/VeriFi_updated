@@ -1,1 +1,34 @@
-**/node_modules
+########################
+# Python (Backend)
+########################
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.venv/
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+.env
+
+########################
+# Node / Next.js (Frontend)
+########################
+node_modules/
+.next/
+out/
+dist/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+########################
+# OS / Editor
+########################
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
