@@ -32,5 +32,5 @@ sentence-transformers==2.2.2
 transformers==4.34.1
 huggingface_hub==0.19.4
 torch>=2.5,<2.7
-faiss-cpu==1.7.4
+faiss-cpu>=1.11,<1.14
 numpy==1.26.2
