@@ -17,6 +17,11 @@ build/
 ########################
 # Node / Next.js (Frontend)
 ########################
+
+# Next.js (case-insensitive safety)
+.next/
+**/.next/
+Frontend/.next/
 node_modules/
 .next/
 out/
